@@ -5,59 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yang Seunghyun | Portfolio</title>
 <style>
+  /* ===== Theme (밝은 톤으로 변경) ===== */
   :root{
-    --bg:#0f1115; --panel:#161a22; --text:#e5e7eb; --muted:#94a3b8; --brand:#6ee7b7; --accent:#38bdf8;
+    --bg:#f6f7fb;           /* 바탕 */
+    --panel:#ffffff;        /* 카드/패널 */
+    --text:#0f172a;         /* 본문 */
+    --muted:#475569;        /* 보조 텍스트 */
+    --line:#e5e7eb;         /* 경계선 */
+    --brand:#0ea5e9;        /* 포인트 */
+    --brand2:#22c55e;       /* 보조 포인트 */
+    --shadow: 0 10px 30px rgba(15,23,42,.06);
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans KR', Arial, sans-serif; color:var(--text); background:linear-gradient(180deg,#0d0f14,#0f1115 40%) fixed}
-  a{color:var(--text); text-decoration:none}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif;
+    color:var(--text);
+    background: radial-gradient(1200px 600px at -10% -10%, #eaf6ff 0%, transparent 60%),
+                radial-gradient(900px 450px at 110% -10%, #eafff3 0%, transparent 60%),
+                var(--bg);
+  }
+  a{color:var(--brand); text-decoration:none}
   .wrap{display:flex; min-height:100vh}
-  /* Sidebar */
+
+  /* ===== Sidebar ===== */
   .sidebar{
     position:sticky; top:0; align-self:flex-start;
-    width:260px; min-height:100vh; padding:24px 18px;
-    background:linear-gradient(180deg,#0d1117,#0e131c); border-right:1px solid #1f2634;
+    width:260px; min-height:100vh; padding:28px 20px;
+    background: linear-gradient(180deg,#ffffff,#f7fafc);
+    border-right:1px solid var(--line);
   }
-  .brand{display:flex; align-items:center; gap:10px; margin-bottom:18px}
-  .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--brand); box-shadow:0 0 24px var(--brand)}
-  .brand h1{font-size:18px; margin:0; letter-spacing:.3px}
-  nav{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+  .brand{display:flex; align-items:center; gap:12px; margin-bottom:18px}
+  .dot{width:12px;height:12px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand2)); box-shadow:0 0 18px rgba(14,165,233,.5)}
+  .brand h1{font-size:18px; margin:0; letter-spacing:.3px; color:#111827}
+  nav{display:flex; flex-direction:column; gap:6px; margin-top:10px}
   nav a{
     padding:10px 12px; border-radius:10px; color:var(--muted);
     transition:all .18s ease; border:1px solid transparent;
   }
-  nav a:hover{color:var(--text); background:#121826; border-color:#1f2535}
-  nav a.active{color:#0b1220; background:linear-gradient(90deg,var(--brand), #7dd3fc); font-weight:700}
-  .footer-mini{color:#657089; font-size:12px; margin-top:auto; padding-top:24px}
+  nav a:hover{color:#111827; background:#f1f5f9; border-color:var(--line)}
+  nav a.active{color:white; background:linear-gradient(90deg,var(--brand), #22c55e); font-weight:700}
+  .footer-mini{color:#94a3b8; font-size:12px; margin-top:auto; padding-top:24px}
 
-  /* Main */
+  /* ===== Main ===== */
   .main{flex:1; padding:40px 56px; max-width:1000px; margin:0 auto}
-  section{scroll-margin-top:24px; padding:56px 0; border-bottom:1px solid #1e2635}
+  section{scroll-margin-top:24px; padding:56px 0; border-bottom:1px solid var(--line)}
   h2{font-size:32px; margin:0 0 14px}
-  p.lead{color:#cdd5e1; line-height:1.7}
-  .card{background:rgba(255,255,255,0.02); border:1px solid #1e2635; border-radius:14px; padding:18px}
-  .grid{display:grid; gap:14px}
+  p.lead{color:#334155; line-height:1.7}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+  .grid{display:grid; gap:16px}
   .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tag{display:inline-block; padding:6px 10px; border-radius:999px; background:#121827; border:1px solid #1f2a3b; color:#cbd5e1; font-size:13px; margin:4px 6px 0 0}
-  .job{display:flex; justify-content:space-between; gap:16px}
+  .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tag{display:inline-block; padding:6px 10px; border-radius:999px; background:#eef2ff; color:#334155; font-size:13px; margin:4px 6px 0 0; border:1px solid #e2e8f0}
+  .job{display:flex; justify-content:space-between; gap:16px; align-items:center}
   .job h3{margin:0 0 6px; font-size:18px}
-  .muted{color:#9aa7bd}
-  img.avatar{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid #243247; box-shadow:0 6px 24px rgba(0,0,0,.35)}
+  .muted{color:#64748b}
+  img.avatar{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid #e5e7eb; box-shadow:var(--shadow)}
   .about-head{display:flex; gap:20px; align-items:center; margin-bottom:12px}
 
-  /* Mobile */
+  /* ===== 상태 뱃지 ===== */
+  .badge{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.2px}
+  .planned{ background:#fff7ed; color:#c2410c; border:1px solid #fed7aa;}      /* 주황: 개발 예정 */
+  .progress{background:#fff1f2; color:#be123c; border:1px solid #fecdd3;}      /* 빨강: 개발 중  */
+  .done{    background:#ecfdf5; color:#047857; border:1px solid #bbf7d0;}      /* 초록: 개발 완료 */
+  .date{font-size:12px; color:#64748b; margin-left:8px}
+
+  /* ===== 프로젝트 카드 ===== */
+  .proj-card{cursor:pointer}
+  .proj-thumb{width:100%; height:150px; object-fit:cover; border-radius:10px; border:1px solid var(--line); margin-bottom:10px}
+
+  /* ===== Modal ===== */
+  .modal{
+    position:fixed; inset:0; display:none; place-items:center; background:rgba(15,23,42,.4); padding:24px; z-index:100;
+  }
+  .modal.open{display:grid}
+  .modal-panel{
+    width:min(880px, 92vw); max-height:85vh; overflow:auto;
+    background:var(--panel); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px;
+  }
+  .modal-head{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px}
+  .xbtn{border:none; background:#f1f5f9; color:#0f172a; padding:8px 10px; border-radius:10px; cursor:pointer}
+  .modal-body img{max-width:100%; border-radius:12px; border:1px solid var(--line); box-shadow:var(--shadow);}
+
+  /* ===== Mobile ===== */
   @media (max-width: 900px){
     .sidebar{position:fixed; inset:auto 0 auto 0; min-height:auto; width:100%; display:flex; align-items:center; gap:10px; padding:10px 14px; z-index:50}
     .sidebar nav{flex-direction:row; overflow:auto; white-space:nowrap; gap:8px; margin-left:8px}
     .brand{margin:0}
     .main{padding:100px 20px 40px}
     .grid.cols-2{grid-template-columns:1fr}
+    .grid.cols-3{grid-template-columns:1fr}
     section{padding:44px 0}
   }
-
-  /* Smooth scroll */
-  html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -82,14 +123,26 @@
       <div class="about-head">
         <img class="avatar" src="assets/images/profile.jpg" alt="profile" />
         <div>
-          <p class="lead">안녕하세요, 불가능보다 시도를 택하는 메이커 양승현입니다.
+          <p class="lead">안녕하세요, <b>불가능보다 시도를 택하는</b> 메이커 양승현입니다.
           현재 <b>Dubby</b>, <b>QrReceipt</b> 등을 만들고 있어요.</p>
           <div class="muted">Startup · Challenger · Backend & Product Maker</div>
         </div>
       </div>
+
+      <!-- ✍️ 간략한 생각(메모) 박스 -->
       <div class="card">
+        <h3 style="margin:0 0 8px">Notes</h3>
+        <p class="muted" style="margin:0 0 8px">요즘의 생각과 작업 메모를 짧게 남기는 공간입니다.</p>
+        <ul style="margin:0 0 6px 18px; line-height:1.7">
+          <li>‘빠르게 만들어 사용자를 만나기’가 최고의 학습.</li>
+          <li>Dubby는 “실시간”에 집착. 지연을 줄이는 데 집중.</li>
+          <li>하루 한 실험을 습관화.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
         📧 <a href="mailto:yangsh5972@gmail.com">yangsh5972@gmail.com</a> ·
-        📞 <a>010-5561-5977</a>
+        📞 <a href="tel:01055615977">010-5561-5977</a>
       </div>
     </section>
 
@@ -114,47 +167,122 @@
     <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-       <div class="card">
+
+      <div class="grid cols-2">
+        <!-- QrReceipt -->
+        <article class="card proj-card" data-proj="qr">
+          <img src="assets/images/qr-thumb.jpg" class="proj-thumb" alt="QrReceipt" />
           <div class="job">
             <div>
               <h3>QrReceipt — QR 온라인 영수증 앱</h3>
-              <div class="muted">Python · Typescript · Jupyter</div>
+              <div class="muted">Python · TypeScript · Jupyter</div>
             </div>
-            <a href="https://github.com/yanglabs/dubby" target="_blank">개발 예정 | Repo →</a>
+            <div>
+              <span class="badge planned">개발 예정</span>
+              <span class="date">2025.10 예정</span>
+            </div>
           </div>
-          <p class="lead">QR 코드로 영수증의 상세 내역까지 스크립트 해주는 서비스</p>
-        </div>
-        <div class="card">
+          <p class="lead">QR로 영수증 상세 내역을 추출·저장하는 서비스.</p>
+
+          <!-- 숨겨진 상세(모달용) -->
+          <template class="detail">
+            <h3>QrReceipt — QR 온라인 영수증 앱</h3>
+            <p class="muted">Python · TypeScript · Jupyter</p>
+            <img src="assets/images/qr-detail.png" alt="qrreceipt screenshot" />
+            <p>카메라/이미지에서 영수증 QR을 인식해 상세 항목을 자동 파싱하고, 개인 지출 히스토리를 생성합니다.
+               향후 카드사/편의점 포맷을 규격화해 자동 분류와 통계를 제공합니다.</p>
+            <ul>
+              <li>상태: <span class="badge planned">개발 예정</span></li>
+              <li>타임라인: <b>2025.10 시작 예정</b></li>
+              <li>레포: <a href="https://github.com/yanglabs/qrreceipt" target="_blank">yanglabs/qrreceipt</a></li>
+            </ul>
+          </template>
+        </article>
+
+        <!-- Dubby -->
+        <article class="card proj-card" data-proj="dubby">
+          <img src="assets/images/dubby-thumb.jpg" class="proj-thumb" alt="Dubby" />
           <div class="job">
             <div>
-              <h3>Dubby — 실시간 AI 보이스 더빙 웹 사이트</h3>
+              <h3>Dubby — 실시간 AI 보이스 더빙</h3>
               <div class="muted">Java · SpringBoot · Whisper API · Google TTS · Streaming</div>
             </div>
-            <a href="https://github.com/yanglabs/dubby" target="_blank">개발 중 | Repo →</a>
-          </div>
-          <p class="lead">유튜브/강의 영상에 문장 단위 스트리밍 더빙을 제공하는 MVP.</p>
-        </div>
-        <div class="card">
-          <div class="job">
             <div>
-              <h3>HotIssue — 맞춤형 뉴스 추천 웹 사이트</h3>
-              <div class="muted">Java · Spring MVC · LLM · Langchain · Python · Pycharm · Oracle · MyBatis</div>
+              <span class="badge progress">개발 중</span>
+              <span class="date">2025.08–진행</span>
             </div>
-            <a href="https://github.com/yanglabs/dubby" target="_blank">개발완료 | Repo →</a>
           </div>
-          <p class="lead">회원별 추천 기사, 통계 및 카테고리 별 실시간 채팅, 시사 상식 퀴즈, 챗봇 제공.</p>
-        </div>
-        <div class="card">
+          <p class="lead">영상에 문장 단위 스트리밍 더빙을 제공하는 MVP.</p>
+
+          <template class="detail">
+            <h3>Dubby — 실시간 AI 보이스 더빙</h3>
+            <p class="muted">Java · SpringBoot · Whisper API · Google TTS · Streaming</p>
+            <img src="assets/images/dubby-detail.png" alt="dubby screenshot" />
+            <p>문장 단위로 STT/번역/TTS를 파이프라인 처리하여 지연을 최소화합니다.
+               크로마캐시·버퍼링 전략으로 사용자 체감 속도를 개선했습니다.</p>
+            <ul>
+              <li>상태: <span class="badge progress">개발 중</span></li>
+              <li>타임라인: <b>2025.08–진행</b></li>
+              <li>레포: <a href="https://github.com/yanglabs/dubby" target="_blank">yanglabs/dubby</a></li>
+            </ul>
+          </template>
+        </article>
+
+        <!-- HotIssue -->
+        <article class="card proj-card" data-proj="hotissue">
+          <img src="assets/images/hotissue-thumb.jpg" class="proj-thumb" alt="HotIssue" />
           <div class="job">
             <div>
-              <h3>Hellmate — 운동/식단 일지 웹 사이트</h3>
+              <h3>HotIssue — 맞춤형 뉴스 추천</h3>
+              <div class="muted">Java · Spring MVC · LLM · LangChain · Python · Oracle · MyBatis</div>
+            </div>
+            <div>
+              <span class="badge done">개발 완료</span>
+              <span class="date">2024.12–2025.02</span>
+            </div>
+          </div>
+          <p class="lead">추천 기사, 통계/차트, 카테고리 채팅, 시사 퀴즈, 챗봇 제공.</p>
+
+          <template class="detail">
+            <h3>HotIssue — 맞춤형 뉴스 추천</h3>
+            <p class="muted">Java · Spring MVC · LLM · LangChain · Python · Oracle · MyBatis</p>
+            <img src="assets/images/hotissue-detail.png" alt="hotissue screenshot" />
+            <p>사용자 클릭/체류 데이터를 반영한 개인화 모델과 LLM 요약/질의응답을 결합했습니다.</p>
+            <ul>
+              <li>상태: <span class="badge done">개발 완료</span></li>
+              <li>타임라인: <b>2024.12–2025.02</b></li>
+              <li>레포: <a href="#" target="_blank">repo link</a></li>
+            </ul>
+          </template>
+        </article>
+
+        <!-- Hellmate -->
+        <article class="card proj-card" data-proj="hellmate">
+          <img src="assets/images/hellmate-thumb.jpg" class="proj-thumb" alt="Hellmate" />
+          <div class="job">
+            <div>
+              <h3>Hellmate — 운동/식단 일지</h3>
               <div class="muted">Java · Spring MVC · Oracle · MyBatis</div>
             </div>
-            <a href="#" target="_blank">개발완료 | Repo →</a>
+            <div>
+              <span class="badge done">개발 완료</span>
+              <span class="date">2023.06–2023.09</span>
+            </div>
           </div>
-          <p class="lead">회원별 식단·운동 일지, 통계 및 차트 제공.</p>
-        </div>
+          <p class="lead">회원별 식단·운동 일지와 통계 제공.</p>
+
+          <template class="detail">
+            <h3>Hellmate — 운동/식단 일지</h3>
+            <p class="muted">Java · Spring MVC · Oracle · MyBatis</p>
+            <img src="assets/images/hellmate-detail.png" alt="hellmate screenshot" />
+            <p>식단·운동 기록과 목표 대비 진척도를 가시화하고, 주간 리포트를 생성합니다.</p>
+            <ul>
+              <li>상태: <span class="badge done">개발 완료</span></li>
+              <li>타임라인: <b>2023.06–2023.09</b></li>
+              <li>레포: <a href="#" target="_blank">repo link</a></li>
+            </ul>
+          </template>
+        </article>
       </div>
     </section>
 
@@ -166,20 +294,31 @@
           <div><h3>서울과학기술대학교 (문예창작학과)</h3><div class="muted">2021–</div></div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" style="margin-top:10px">
         <div class="job">
           <div><h3>안양예술고등학교 (문예창작학과)</h3><div class="muted">2018–2021</div></div>
         </div>
       </div>
     </section>
+  </main>
+</div>
 
+<!-- Modal -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <strong class="muted">Project Detail</strong>
+      <button class="xbtn" id="closeModal">닫기</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
 
 <script>
-  // 현재 섹션 active 처리
+  // 사이드바 active
   const links = [...document.querySelectorAll('#sideNav a')];
   const sections = links.map(a => document.querySelector(a.getAttribute('href')));
   const byId = id => links.find(a => a.getAttribute('href') === '#' + id);
-
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
@@ -188,13 +327,34 @@
       }
     })
   }, {rootMargin:"-40% 0px -55% 0px", threshold:0});
-
   sections.forEach(s=>s && obs.observe(s));
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // 프로젝트 모달
+  const modal = document.getElementById('modal');
+  const modalBody = document.getElementById('modalBody');
+  const close = document.getElementById('closeModal');
+  const openModal = (html) => {
+    modalBody.innerHTML = "";
+    modalBody.append(html);
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  };
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    modalBody.innerHTML = "";
+  };
+  close.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+  document.querySelectorAll('.proj-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      const tpl = card.querySelector('template.detail');
+      if(tpl) openModal(tpl.content.cloneNode(true));
+    });
+  });
 </script>
 </body>
-
 </html>
-
-
-
