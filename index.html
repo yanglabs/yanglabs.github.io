@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yang Seunghyun | Portfolio</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#161a22; --text:#e5e7eb; --muted:#94a3b8; --brand:#6ee7b7; --accent:#38bdf8;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans KR', Arial, sans-serif; color:var(--text); background:linear-gradient(180deg,#0d0f14,#0f1115 40%) fixed}
+  a{color:var(--text); text-decoration:none}
+  .wrap{display:flex; min-height:100vh}
+  /* Sidebar */
+  .sidebar{
+    position:sticky; top:0; align-self:flex-start;
+    width:260px; min-height:100vh; padding:24px 18px;
+    background:linear-gradient(180deg,#0d1117,#0e131c); border-right:1px solid #1f2634;
+  }
+  .brand{display:flex; align-items:center; gap:10px; margin-bottom:18px}
+  .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--brand); box-shadow:0 0 24px var(--brand)}
+  .brand h1{font-size:18px; margin:0; letter-spacing:.3px}
+  nav{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+  nav a{
+    padding:10px 12px; border-radius:10px; color:var(--muted);
+    transition:all .18s ease; border:1px solid transparent;
+  }
+  nav a:hover{color:var(--text); background:#121826; border-color:#1f2535}
+  nav a.active{color:#0b1220; background:linear-gradient(90deg,var(--brand), #7dd3fc); font-weight:700}
+  .footer-mini{color:#657089; font-size:12px; margin-top:auto; padding-top:24px}
+
+  /* Main */
+  .main{flex:1; padding:40px 56px; max-width:1000px; margin:0 auto}
+  section{scroll-margin-top:24px; padding:56px 0; border-bottom:1px solid #1e2635}
+  h2{font-size:32px; margin:0 0 14px}
+  p.lead{color:#cdd5e1; line-height:1.7}
+  .card{background:rgba(255,255,255,0.02); border:1px solid #1e2635; border-radius:14px; padding:18px}
+  .grid{display:grid; gap:14px}
+  .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tag{display:inline-block; padding:6px 10px; border-radius:999px; background:#121827; border:1px solid #1f2a3b; color:#cbd5e1; font-size:13px; margin:4px 6px 0 0}
+  .job{display:flex; justify-content:space-between; gap:16px}
+  .job h3{margin:0 0 6px; font-size:18px}
+  .muted{color:#9aa7bd}
+  img.avatar{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid #243247; box-shadow:0 6px 24px rgba(0,0,0,.35)}
+  .about-head{display:flex; gap:20px; align-items:center; margin-bottom:12px}
+
+  /* Mobile */
+  @media (max-width: 900px){
+    .sidebar{position:fixed; inset:auto 0 auto 0; min-height:auto; width:100%; display:flex; align-items:center; gap:10px; padding:10px 14px; z-index:50}
+    .sidebar nav{flex-direction:row; overflow:auto; white-space:nowrap; gap:8px; margin-left:8px}
+    .brand{margin:0}
+    .main{padding:100px 20px 40px}
+    .grid.cols-2{grid-template-columns:1fr}
+    section{padding:44px 0}
+  }
+
+  /* Smooth scroll */
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span><h1>YangLabs</h1></div>
+    <nav id="sideNav">
+      <a href="#about" class="active">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
+      <a href="#certs">Certificates</a>
+      <a href="#career">Career</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-mini">© <span id="year"></span> Yang Seunghyun</div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-head">
+        <img class="avatar" src="assets/profile.jpg" alt="profile" />
+        <div>
+          <p class="lead">안녕하세요, 변화에 빠르게 적응하는 백엔드/프로덕트 메이커 양승현입니다.  
+          현재 <b>Dubby</b>, <b>Hellmate</b>, <b>Pendora</b> 등을 만들고 있어요.</p>
+          <div class="muted">Seoul · Java/Spring · JPA · Oracle · GitHub Actions · Product UX</div>
+        </div>
+      </div>
+      <div class="card">
+        📧 <a href="mailto:wlsdnr19731@gmail.com">wlsdnr19731@gmail.com</a> ·
+        🐙 <a href="https://github.com/yanglabs" target="_blank">github.com/yanglabs</a> ·
+        📝 <a href="https://yanglabs.github.io/blog" target="_blank">Blog</a>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Language/Framework</h3>
+          <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">Spring Boot</span>
+          <span class="tag">JPA</span><span class="tag">MyBatis</span><span class="tag">Oracle</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="card">
+          <h3>Tools/DevOps</h3>
+          <span class="tag">Git/GitHub</span><span class="tag">GitHub Actions</span>
+          <span class="tag">Docker</span><span class="tag">Figma</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="job">
+            <div>
+              <h3>Dubby — 실시간 AI 보이스 더빙</h3>
+              <div class="muted">Spring · Whisper API · Google TTS · Streaming</div>
+            </div>
+            <a href="https://github.com/yanglabs/dubby" target="_blank">Repo →</a>
+          </div>
+          <p class="lead">유튜브/강의 영상에 문장 단위 스트리밍 더빙을 제공하는 MVP.</p>
+        </div>
+        <div class="card">
+          <div class="job">
+            <div>
+              <h3>Hellmate — 운동/식단 일지</h3>
+              <div class="muted">Spring MVC · Oracle · MyBatis</div>
+            </div>
+            <a href="#" target="_blank">Repo →</a>
+          </div>
+          <p class="lead">회원별 식단·운동 일지, 통계 및 차트 제공.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card">
+        <div class="job">
+          <div><h3>SeoulTech (Creative Writing)</h3><div class="muted">2023–</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+      <h2>Awards</h2>
+      <div class="card">교내·대회 수상 내역 요약</div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certs">
+      <h2>Certificates</h2>
+      <div class="card">관련 자격증 리스트</div>
+    </section>
+
+    <!-- Career -->
+    <section id="career">
+      <h2>Career</h2>
+      <div class="card">
+        <div class="job">
+          <div>
+            <h3>Founder / Product Engineer</h3>
+            <div class="muted">Dubby · 2025–</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        문의는 <a href="mailto:wlsdnr19731@gmail.com">wlsdnr19731@gmail.com</a> 로 주세요.
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  // 현재 섹션 active 처리
+  const links = [...document.querySelectorAll('#sideNav a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  const byId = id => links.find(a => a.getAttribute('href') === '#' + id);
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        byId(e.target.id)?.classList.add('active');
+      }
+    })
+  }, {rootMargin:"-40% 0px -55% 0px", threshold:0});
+
+  sections.forEach(s=>s && obs.observe(s));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
