@@ -179,4 +179,172 @@
             <span class="date">2025.09.03–진행 (개인 프로젝트)</span>
           </div>
           <div class="job"><h3>QrReceipt — QR 온라인 영수증 앱</h3></div>
-          <p class="lead">“영수증 QR 한 번 스캔으로, 품목별 지출이 자동 분류됩니다
+          <p class="lead">“영수증 QR 한 번 스캔으로, 품목별 지출이 자동 분류됩니다.”</p>
+
+          <div class="stack-tags">
+            <span class="tag">Python</span><span class="tag">TypeScript</span>
+            <span class="tag">OCR</span><span class="tag">Pandas</span><span class="tag">Jupyter</span>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn mini solid" disabled>README</button>
+            <button class="btn mini ghost" disabled>IMAGES</button>
+          </div>
+        </article>
+
+        <!-- Dubby -->
+        <article class="card proj-card" data-proj="dubby">
+          <div class="meta-line">
+            <span class="badge progress">개발 중</span>
+            <span class="date">2025.08.01–진행 (개인 프로젝트)</span>
+          </div>
+          <div class="job"><h3>Dubby — 실시간 AI 보이스 더빙 프로그램</h3></div>
+          <p class="lead">“강의 영상을 문장 단위로 즉시 더빙해, 자막보다 빠르게 이해하게 합니다.”</p>
+
+          <div class="stack-tags">
+            <span class="tag">Java</span><span class="tag">Spring Boot</span>
+            <span class="tag">Whisper API</span><span class="tag">Google TTS</span><span class="tag">Streaming</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn mini solid" href="https://github.com/yanglabs/dubby" target="_blank" rel="noopener">README</a>
+            <button class="btn mini ghost" data-gallery="dubby">IMAGES</button>
+          </div>
+
+          <div class="gallery" data-name="dubby" hidden>
+            <img src="assets/images/dubby-detail.png" alt="dubby screen 1"/>
+            <img src="assets/images/dubby-pipeline.png" alt="pipeline diagram"/>
+            <img src="assets/images/dubby-ui.png" alt="ui"/>
+          </div>
+        </article>
+
+        <!-- HotIssue -->
+        <article class="card proj-card" data-proj="hotissue">
+          <div class="meta-line">
+            <span class="badge done">개발 완료</span>
+            <span class="date">2025.07.15–2025.09.05 (6人 팀 프로젝트)</span>
+          </div>
+          <div class="job"><h3>HotIssue — 맞춤형 뉴스 추천 웹 플랫폼</h3></div>
+          <p class="lead">“뉴스를 읽는 대신, 요약과 대화로 핵심만 빠르게 파악하세요.”</p>
+
+          <div class="stack-tags">
+            <span class="tag">Java</span><span class="tag">Spring MVC</span>
+            <span class="tag">LLM</span><span class="tag">LangChain</span>
+            <span class="tag">Python</span><span class="tag">Oracle</span><span class="tag">MyBatis</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn mini solid" href="https://github.com/hykim-king/awesome" target="_blank" rel="noopener">README</a>
+            <button class="btn mini ghost" data-gallery="hotissue">IMAGES</button>
+          </div>
+
+          <div class="gallery" data-name="hotissue" hidden>
+            <img src="assets/images/hotissue-detail.png" alt="hotissue UI"/>
+            <img src="assets/images/hotissue-stats.png" alt="hotissue stats"/>
+            <img src="assets/images/hotissue-chat.png" alt="hotissue chat"/>
+          </div>
+        </article>
+
+        <!-- Hellmate -->
+        <article class="card proj-card" data-proj="hellmate">
+          <div class="meta-line">
+            <span class="badge done">개발 완료</span>
+            <span class="date">2025.05.19–2025.07.04 (4人 팀 프로젝트)</span>
+          </div>
+          <div class="job"><h3>Hellmate — 운동/식단 일지 웹 사이트</h3></div>
+          <p class="lead">“식단·운동 기록이 차트로 변해, 목표 달성을 끝까지 밀어줍니다.”</p>
+
+          <div class="stack-tags">
+            <span class="tag">Java</span><span class="tag">Spring MVC</span>
+            <span class="tag">Oracle</span><span class="tag">MyBatis</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn mini solid" href="https://github.com/hykim-king/MEGA" target="_blank" rel="noopener">README</a>
+            <button class="btn mini ghost" data-gallery="hellmate">IMAGES</button>
+          </div>
+
+          <div class="gallery" data-name="hellmate" hidden>
+            <img src="assets/images/hellmate-detail.png" alt="hellmate screen"/>
+            <img src="assets/images/hellmate-stats.png" alt="hellmate stats"/>
+            <img src="assets/images/hellmate-goals.png" alt="hellmate goals"/>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card"><div class="job"><div><h3>서울과학기술대학교 (문예창작학과)</h3><div class="muted">2021–</div></div></div></div>
+      <div class="card" style="margin-top:10px"><div class="job"><div><h3>안양예술고등학교 (문예창작학과)</h3><div class="muted">2018–2021</div></div></div></div>
+    </section>
+  </main>
+</div>
+
+<script>
+  // 사이드바 active 상태
+  const links = [...document.querySelectorAll('#sideNav a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  const byId = id => links.find(a => a.getAttribute('href') === '#' + id);
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        byId(e.target.id)?.classList.add('active');
+      }
+    })
+  }, {rootMargin:"-40% 0px -55% 0px", threshold:0});
+  sections.forEach(s=>s && obs.observe(s));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // IMAGES 버튼 → 갤러리 오버레이
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('[data-gallery]');
+    if(!btn) return;
+
+    const card = btn.closest('.proj-card');
+    const name = btn.getAttribute('data-gallery');
+    const gal = card?.querySelector('.gallery[data-name="'+name+'"]');
+    if(!gal) return;
+
+    const imgs = [...gal.querySelectorAll('img')];
+    if(imgs.length === 0) return;
+
+    let idx = 0;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:1000;";
+    const frame = document.createElement('div');
+    frame.style.cssText = "position:relative;max-width:92vw;max-height:86vh;";
+    const img = document.createElement('img');
+    img.style.cssText = "max-width:92vw;max-height:86vh;border-radius:10px;display:block;border:1px solid #e5e7eb;";
+    const prev = document.createElement('button');
+    const next = document.createElement('button');
+    const closeBtn = document.createElement('button');
+
+    [prev,next,closeBtn].forEach(b=>{
+      b.className='btn ghost'; b.style.position='absolute'; b.style.top='50%'; b.style.transform='translateY(-50%)';
+      b.style.background='rgba(255,255,255,.9)';
+    });
+    prev.textContent='‹'; next.textContent='›'; closeBtn.textContent='✕';
+    prev.style.left='-56px'; next.style.right='-56px';
+    closeBtn.style.top='-48px'; closeBtn.style.right='-8px'; closeBtn.style.transform='none';
+
+    function render(){ img.src = imgs[idx].src; img.alt = imgs[idx].alt || ''; }
+    function step(d){ idx = (idx+d+imgs.length)%imgs.length; render(); }
+
+    prev.addEventListener('click', (ev)=>{ev.stopPropagation(); step(-1);});
+    next.addEventListener('click', (ev)=>{ev.stopPropagation(); step(+1);});
+    closeBtn.addEventListener('click', (ev)=>{ev.stopPropagation(); overlay.remove();});
+    overlay.addEventListener('click', ()=> overlay.remove());
+    document.addEventListener('keydown', escClose);
+    function escClose(ev){ if(ev.key==='Escape'){ overlay.remove(); document.removeEventListener('keydown', escClose);} }
+
+    frame.append(img, prev, next, closeBtn);
+    overlay.append(frame);
+    document.body.append(overlay);
+    render();
+  });
+</script>
+</body>
+</html>
