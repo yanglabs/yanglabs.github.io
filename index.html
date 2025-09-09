@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yang Seunghyun | Portfolio</title>
 <style>
-  /* ===== Theme (밝은 톤) ===== */
   :root{
     --bg:#f6f7fb; --panel:#ffffff; --text:#0f172a; --muted:#475569; --line:#e5e7eb;
     --brand:#0ea5e9; --brand2:#22c55e; --shadow: 0 10px 30px rgba(15,23,42,.06);
@@ -24,7 +23,7 @@
   a{color:var(--brand); text-decoration:none}
   .wrap{display:flex; min-height:100vh}
 
-  /* ===== Sidebar ===== */
+  /* Sidebar */
   .sidebar{
     position:sticky; top:0; align-self:flex-start;
     width:260px; min-height:100vh; padding:28px 20px;
@@ -43,7 +42,7 @@
   nav a.active{color:white; background:linear-gradient(90deg,var(--brand), #22c55e); font-weight:700}
   .footer-mini{color:#94a3b8; font-size:12px; margin-top:auto; padding-top:24px}
 
-  /* ===== Main ===== */
+  /* Main */
   .main{flex:1; padding:40px 56px; max-width:1000px; margin:0 auto}
   section{scroll-margin-top:24px; padding:56px 0; border-bottom:1px solid var(--line)}
   h2{font-size:32px; margin:0 0 14px}
@@ -51,7 +50,6 @@
   .card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
   .grid{display:grid; gap:16px}
   .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
   .tag{display:inline-block; padding:6px 10px; border-radius:999px; background:#eef2ff; color:#334155; font-size:13px; margin:4px 6px 0 0; border:1px solid #e2e8f0}
   .job{display:flex; justify-content:space-between; gap:16px; align-items:center}
   .job h3{margin:0 0 6px; font-size:18px}
@@ -59,61 +57,50 @@
   img.avatar{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid #e5e7eb; box-shadow:var(--shadow)}
   .about-head{display:flex; gap:20px; align-items:center; margin-bottom:12px}
 
-  /* ===== 상태 뱃지 ===== */
+  /* 상태 뱃지 */
   .badge{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.2px}
   .planned{ background:#fff7ed; color:#c2410c; border:1px solid #fed7aa;}
   .progress{background:#fff1f2; color:#be123c; border:1px solid #fecdd3;}
   .done{    background:#ecfdf5; color:#047857; border:1px solid #bbf7d0;}
   .date{font-size:12px; color:#64748b; margin-left:8px}
 
-  /* ===== 프로젝트 카드 ===== */
-  .proj-card{cursor:pointer}
-  .proj-thumb{width:100%; height:150px; object-fit:cover; border-radius:10px; border:1px solid var(--line); margin-bottom:10px}
+  /* 프로젝트 카드 */
+  .proj-card{cursor:default}
   .proj-card .meta-line{display:flex; gap:12px; align-items:center; margin-bottom:12px;}
 
-  /* 카드 하단 액션 버튼 */
+  /* 액션 버튼 */
   .card-actions{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;}
   .btn{
     display:inline-block; padding:10px 14px; border-radius:10px;
     font-weight:600; border:1px solid rgba(15,23,42,.14);
     background:transparent; cursor:pointer; text-decoration:none; color:var(--text);
+    transition:transform .12s ease;
   }
   .btn:hover{transform:translateY(-1px)}
-  .btn.solid{background:var(--brand); color:#0b1220; border-color:transparent}
+  .btn.solid{background:var(--brand); color:#fff; border-color:transparent}
   .btn.ghost{background:transparent}
   .btn.mini{padding:6px 10px; font-size:13px; border-radius:8px}
 
-  /* ===== Detail (모달 본문: 단일 컬럼) ===== */
-  .detail h3{margin:0 0 6px}
-  .detail h4{margin:16px 0 8px}
-  .detail .detail-hook{color:var(--muted); margin:0 0 14px}
-  .detail .detail-hero{width:100%; border-radius:10px; margin:8px 0 18px; border:1px solid var(--line)}
-  .stack-tags{margin:0 0 6px}
-  .bulleted{padding-left:18px} .bulleted li{margin:6px 0}
-  .persona{display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center}
-  .persona img{width:96px;height:96px;border-radius:12px;object-fit:cover;border:1px solid var(--line)}
-  .persona blockquote{margin:6px 0 0;color:var(--muted)}
-  .detail-meta{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:8px 0 14px; padding:8px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
-  .detail-meta li{list-style:none; color:var(--muted)}
+  /* 스택 */
+  .stack-tags{margin-top:6px}
+  .stack-tags .tag{margin-top:4px}
 
-  /* ===== Modal ===== */
-  .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(15,23,42,.4); padding:24px; z-index:100;}
-  .modal.open{display:grid}
-  .modal-panel{
-    width:min(880px, 92vw); max-height:85vh; overflow:auto;
-    background:var(--panel); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px;
+  /* 비활성 버튼 (QR 전용) */
+  .btn:disabled,
+  .btn.disabled{
+    background:#e5e7eb; color:#94a3b8; border-color:#e5e7eb;
+    cursor:not-allowed; pointer-events:none; box-shadow:none; transform:none;
   }
-  .modal-head{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px}
-  .xbtn{border:none; background:#f1f5f9; color:#0f172a; padding:8px 10px; border-radius:10px; cursor:pointer}
-  .modal-body img{max-width:100%; border-radius:12px; border:1px solid var(--line); box-shadow:var(--shadow);}
+  .btn.solid:disabled{ background:#e5e7eb; color:#94a3b8; }
+  .btn.ghost:disabled{ background:#f8fafc; color:#94a3b8; border-color:#e5e7eb; }
 
-  /* ===== Mobile ===== */
+  /* Mobile */
   @media (max-width:900px){
     .sidebar{position:fixed; inset:auto 0 auto 0; min-height:auto; width:100%; display:flex; align-items:center; gap:10px; padding:10px 14px; z-index:50}
     .sidebar nav{flex-direction:row; overflow:auto; white-space:nowrap; gap:8px; margin-left:8px}
     .brand{margin:0}
     .main{padding:100px 20px 40px}
-    .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+    .grid.cols-2{grid-template-columns:1fr}
     section{padding:44px 0}
   }
 </style>
@@ -185,384 +172,11 @@
       <h2>Projects</h2>
 
       <div class="grid cols-2">
-        <!-- QrReceipt -->
+        <!-- QrReceipt (비활성) -->
         <article class="card proj-card" data-proj="qrreceipt">
           <div class="meta-line">
             <span class="badge planned">기획 중</span>
             <span class="date">2025.09.03–진행 (개인 프로젝트)</span>
           </div>
           <div class="job"><h3>QrReceipt — QR 온라인 영수증 앱</h3></div>
-          <!-- ✅ 후킹 멘트(카드) -->
-          <p class="lead">“영수증 QR 한 번 스캔으로, 품목별 지출이 자동 분류됩니다.”</p>
-
-          <div class="card-actions">
-            <button class="btn mini solid" data-open="detail" onclick="event.stopPropagation()">README</button>
-            <button class="btn mini ghost" data-gallery="qrreceipt" onclick="event.stopPropagation()">IMAGES</button>
-          </div>
-
-          <template class="detail">
-            <article class="detail">
-              <h3>QrReceipt — QR 온라인 영수증 앱</h3>
-              <ul class="detail-meta">
-                <li><span class="badge planned">개발 예정</span></li>
-                <li><b>2025.10 시작 예정</b></li>
-                <li><a href="https://github.com/yanglabs/qrreceipt" target="_blank" rel="noopener">GitHub: yanglabs/qrreceipt</a></li>
-              </ul>
-
-              <p class="detail-hook">카메라/이미지에서 QR을 인식해 <b>품목·금액·매장</b>을 파싱, 자동 분류/리포트를 제공합니다.</p>
-
-              <!-- 기술 스택 -->
-              <h4>기술 스택</h4>
-              <p class="stack-tags">
-                <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">Jupyter</span>
-                <span class="tag">OCR</span><span class="tag">Pandas</span>
-              </p>
-
-              <!-- 핵심 기능 -->
-              <h4>핵심 기능</h4>
-              <ul class="bulleted">
-                <li>QR 인식 → 품목/금액/매장 정보 자동 파싱</li>
-                <li>“업무비/사비” 태깅, 증빙 파일(PDF/엑셀) 출력</li>
-                <li>카테고리/기간별 리포트 & 차트 제공</li>
-              </ul>
-
-              <!-- 고객 페르소나 -->
-              <h4>고객 페르소나</h4>
-              <div class="persona">
-                <img src="assets/images/persona-freelancer.png" alt="persona freelancer" />
-                <div>
-                  <p><b>이름:</b> 김프리 (29) · <b>프로필:</b> 프리랜서/1인 사업자</p>
-                  <blockquote>“증빙 수집이 제일 귀찮아요. QR만 찍으면 분류/리포트가 끝나면 최고죠.”</blockquote>
-                </div>
-              </div>
-
-              <!-- 의미 & 배운 점 -->
-              <h4>의미 & 배운 점</h4>
-              <ul class="bulleted">
-                <li>다양한 포맷을 스키마로 규격화하여 파싱 유지보수 비용 축소</li>
-                <li>증빙→리포트까지 닫히는 플로우가 잔존율에 핵심</li>
-              </ul>
-
-              <!-- 갤러리 -->
-              <div class="gallery" data-name="qrreceipt" hidden>
-                <img src="assets/images/qr-detail.png" alt="qr receipt preview"/>
-                <img src="assets/images/qr-parse.png" alt="qr parse flow"/>
-                <img src="assets/images/qr-report.png" alt="qr report"/>
-              </div>
-            </article>
-          </template>
-        </article>
-
-        <!-- Dubby -->
-        <article class="card proj-card" data-proj="dubby">
-          <div class="meta-line">
-            <span class="badge progress">개발 중</span>
-            <span class="date">2025.08.01–진행 (개인 프로젝트)</span>
-          </div>
-          <div class="job"><h3>Dubby — 실시간 AI 보이스 더빙 프로그램</h3></div>
-          <p class="lead">“강의 영상을 문장 단위로 즉시 더빙해, 자막보다 빠르게 이해하게 합니다.”</p>
-
-          <div class="card-actions">
-            <button class="btn mini solid" data-open="detail" onclick="event.stopPropagation()">README</button>
-            <button class="btn mini ghost" data-gallery="dubby" onclick="event.stopPropagation()">IMAGES</button>
-          </div>
-
-          <template class="detail">
-            <article class="detail">
-              <h3>Dubby — 실시간 AI 보이스 더빙</h3>
-              <ul class="detail-meta">
-                <li><span class="badge progress">개발 중</span></li>
-                <li><b>2025.08–진행</b></li>
-                <li><a href="https://github.com/yanglabs/dubby" target="_blank" rel="noopener">GitHub: yanglabs/dubby</a></li>
-              </ul>
-
-              <p class="detail-hook">문장 단위 STT→번역→TTS 파이프라인으로 지연을 최소화하고, 캐시/버퍼링으로 체감 속도 개선.</p>
-
-              <!-- 기술 스택 -->
-              <h4>기술 스택</h4>
-              <p class="stack-tags">
-                <span class="tag">Java</span><span class="tag">Spring Boot</span>
-                <span class="tag">Whisper API</span><span class="tag">Google TTS</span>
-                <span class="tag">Streaming</span>
-              </p>
-
-              <img src="assets/images/dubby-detail.png" alt="dubby screenshot" class="detail-hero"/>
-
-              <h4>기존 핵심 기능</h4>
-              <ul class="bulleted">
-                <li>문장 단위 스트리밍 더빙(STT→번역→TTS)</li>
-                <li>크로마 캐시·버퍼링으로 초기 대기 최소화</li>
-                <li>미리듣기 무제한 / 전체 더빙 일 3회 제한</li>
-                <li>YouTube 링크 입력 → 음성 추출(.webm) → 실시간 처리</li>
-              </ul>
-
-              <h4>피벗 방향</h4>
-              <ul class="bulleted">
-                <li>zoom 플러그인 기반 실시간 더빙</li>
-                <li>복습팩 제공(타임라인별 요약 및 질의응답)</li>
-                <li>교수의 목소리로 클로닝 된 음성</li>
-              </ul>
-
-              <h4>고객 페르소나</h4>
-              <div class="persona">
-                <div>
-                  <p><b>이름:</b> 김성경 (25) · <b>프로필:</b> 교환학생 & 해외 강의 시청자</p>
-                  <blockquote>“교환학생을 왔지만, 언어 장벽 떄문에 수업을 따라가기 힘들어요. 제 언어로 자연스럽게 들리면 집중이 확 올라가요.”</blockquote>
-                </div>
-              </div>
-
-              <div class="gallery" data-name="dubby" hidden>
-                <img src="assets/images/dubby-detail.png" alt="dubby screen 1"/>
-                <img src="assets/images/dubby-pipeline.png" alt="pipeline diagram"/>
-                <img src="assets/images/dubby-ui.png" alt="ui"/>
-              </div>
-            </article>
-          </template>
-        </article>
-
-        <!-- HotIssue -->
-        <article class="card proj-card" data-proj="hotissue">
-          <div class="meta-line">
-            <span class="badge done">개발 완료</span>
-            <span class="date">2025.07.15–2025.09.05 (6人 팀 프로젝트)</span>
-          </div>
-          <div class="job"><h3>HotIssue — 맞춤형 뉴스 추천 웹 플랫폼</h3></div>
-          <p class="lead">“뉴스를 읽는 대신, 요약과 대화로 핵심만 빠르게 파악하세요.”</p>
-
-          <div class="card-actions">
-            <button class="btn mini solid" data-open="detail" onclick="event.stopPropagation()">README</button>
-            <button class="btn mini ghost" data-gallery="hotissue" onclick="event.stopPropagation()">IMAGES</button>
-          </div>
-
-          <template class="detail">
-            <article class="detail">
-              <h3>HotIssue — 맞춤형 뉴스 추천</h3>
-              <ul class="detail-meta">
-                <li><span class="badge done">개발 완료</span></li>
-                <li><b>2024.12–2025.02</b></li>
-                <li><a href="https://github.com/hykim-king/awesome" target="_blank" rel="noopener">https://github.com/hykim-king/awesome</a></li>
-              </ul>
-
-              <p class="detail-hook">AI 기반 클릭/체류 기반 분석 후 개인화 + LLM 요약/질의응답으로 뉴스 탐 효율을 높였습니다.</p>
-
-              <!-- 기술 스택 -->
-              <h4>기술 스택</h4>
-              <p class="stack-tags">
-                <span class="tag">Java</span><span class="tag">Spring MVC</span>
-                <span class="tag">LLM</span><span class="tag">LangChain</span>
-                <span class="tag">Python</span><span class="tag">Oracle</span><span class="tag">MyBatis</span>
-              </p>
-
-              <img src="assets/images/hotissue-detail.png" alt="hotissue screenshot" class="detail-hero"/>
-
-              <h4>핵심 기능</h4>
-              <ul class="bulleted">
-                <li>개인화 추천(클릭/체류 반영)</li>
-                <li>카테고리 별 채팅 & 시사 퀴즈</li>
-                <li>LLM 요약/질의응답</li>
-              </ul>
-
-              <h4>고객 페르소나</h4>
-              <div class="persona">
-                <img src="assets/images/persona-student.png" alt="persona student" />
-                <div>
-                  <p><b>이름:</b> 박은미 (27) · <b>프로필:</b> 취업 준비생, 시사 이슈 학습자</p>
-                  <blockquote>“매일 뉴스를 깊게 볼 시간이 없어요. 카테고리별 이슈와 저에게 필요한 핵심만 빠르게 보고 싶어요.”</blockquote>
-                </div>
-              </div>
-
-              <div class="gallery" data-name="hotissue" hidden>
-                <img src="assets/images/hotissue-detail.png" alt="hotissue UI"/>
-                <img src="assets/images/hotissue-stats.png" alt="hotissue stats"/>
-                <img src="assets/images/hotissue-chat.png" alt="hotissue chat"/>
-              </div>
-            </article>
-          </template>
-        </article>
-
-        <!-- Hellmate -->
-        <article class="card proj-card" data-proj="hellmate">
-          <div class="meta-line">
-            <span class="badge done">개발 완료</span>
-            <span class="date">2025.05.19–2025.07.04 (4人 팀 프로젝트)</span>
-          </div>
-          <div class="job"><h3>Hellmate — 운동/식단 일지 웹 사이트</h3></div>
-          <p class="lead">“식단·운동 기록이 차트로 변해, 목표 달성을 끝까지 밀어줍니다.”</p>
-
-          <div class="card-actions">
-            <button class="btn mini solid" data-open="detail" onclick="event.stopPropagation()">README</button>
-            <button class="btn mini ghost" data-gallery="hellmate" onclick="event.stopPropagation()">IMAGES</button>
-          </div>
-
-          <template class="detail">
-            <article class="detail">
-              <h3>Hellmate — 운동/식단 일지</h3>
-              <ul class="detail-meta">
-                <li><span class="badge done">개발 완료</span></li>
-                <li><b>2023.06–2023.09</b></li>
-                <li><a href="https://github.com/hykim-king/MEGA" target="_blank" rel="noopener">https://github.com/hykim-king/MEGA</a></li>
-              </ul>
-
-              <p class="detail-hook">식단·운동 기록을 시각화하고, 목표 대비 진척도와 주간 리포트를 제공합니다.</p>
-
-              <!-- 기술 스택 -->
-              <h4>기술 스택</h4>
-              <p class="stack-tags">
-                <span class="tag">Java</span><span class="tag">Spring MVC</span>
-                <span class="tag">Oracle</span><span class="tag">MyBatis</span>
-              </p>
-
-              <img src="assets/images/hellmate-detail.png" alt="hellmate screenshot" class="detail-hero"/>
-
-              <h4>핵심 기능</h4>
-              <ul class="bulleted">
-                <li>식단/운동 기록, 목표 설정, 통계 차트</li>
-                <li>주간 리포트 자동 생성</li>
-              </ul>
-
-              <h4>고객 페르소나</h4>
-              <div class="persona">
-                <img src="assets/images/persona-office.png" alt="persona office worker" />
-                <div>
-                  <p><b>이름:</b> 최민식 (31) · <b>프로필:</b> 야근 많은 직장인, 체중/건강 관리 필요</p>
-                  <blockquote>“꾸준함이 제일 어려워요. 기록이 자동으로 리마인드되고 같이 하면 계속 하게 돼요.”</blockquote>
-                </div>
-              </div>
-
-              <div class="gallery" data-name="hellmate" hidden>
-                <img src="assets/images/hellmate-detail.png" alt="hellmate screen"/>
-                <img src="assets/images/hellmate-stats.png" alt="hellmate stats"/>
-                <img src="assets/images/hellmate-goals.png" alt="hellmate goals"/>
-              </div>
-            </article>
-          </template>
-        </article>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-      <h2>Education</h2>
-      <div class="card"><div class="job"><div><h3>서울과학기술대학교 (문예창작학과)</h3><div class="muted">2021–</div></div></div></div>
-      <div class="card" style="margin-top:10px"><div class="job"><div><h3>안양예술고등학교 (문예창작학과)</h3><div class="muted">2018– 2021</div></div></div></div>
-    </section>
-  </main>
-</div>
-
-<!-- Modal -->
-<div id="modal" class="modal" aria-hidden="true">
-  <div class="modal-panel" role="dialog" aria-modal="true">
-    <div class="modal-head">
-      <strong class="muted">Project Detail</strong>
-      <button class="xbtn" id="closeModal">닫기</button>
-    </div>
-    <div class="modal-body" id="modalBody"></div>
-  </div>
-</div>
-
-<script>
-  // 사이드바 active
-  const links = [...document.querySelectorAll('#sideNav a')];
-  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-  const byId = id => links.find(a => a.getAttribute('href') === '#' + id);
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        byId(e.target.id)?.classList.add('active');
-      }
-    })
-  }, {rootMargin:"-40% 0px -55% 0px", threshold:0});
-  sections.forEach(s=>s && obs.observe(s));
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // 모달 열고 닫기
-  const modal = document.getElementById('modal');
-  const modalBody = document.getElementById('modalBody');
-  const close = document.getElementById('closeModal');
-  const openModal = (html) => {
-    modalBody.innerHTML = "";
-    modalBody.append(html);
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-  };
-  const closeModal = () => {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    modalBody.innerHTML = "";
-  };
-  close.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-
-  // 카드 전체 클릭 → 디테일 열기
-  document.querySelectorAll('.proj-card').forEach(card=>{
-    card.addEventListener('click', ()=>{
-      const tpl = card.querySelector('template.detail');
-      if(tpl) openModal(tpl.content.cloneNode(true));
-    });
-  });
-
-  // README 버튼 → 디테일(모달) 열기 (카드 클릭과 충돌 방지)
-  document.addEventListener('click', (e)=>{
-    const btn = e.target.closest('[data-open="detail"]');
-    if(!btn) return;
-    e.stopPropagation();
-    const card = btn.closest('.proj-card');
-    const tpl = card?.querySelector('template.detail');
-    if(tpl) openModal(tpl.content.cloneNode(true));
-  });
-
-  // IMAGES 버튼 → 갤러리 뷰어 (README와 완전 분리)
-  document.addEventListener('click', function(e){
-    const btn = e.target.closest('[data-gallery]');
-    if(!btn) return;
-    e.stopPropagation();
-
-    const container = btn.closest('article, .modal') || document;
-    const name = btn.getAttribute('data-gallery');
-    const gal = container.querySelector('.gallery[data-name="'+name+'"]')
-               || document.querySelector('.gallery[data-name="'+name+'"]');
-    if(!gal) return;
-
-    const imgs = [...gal.querySelectorAll('img')];
-    if(imgs.length === 0) return;
-
-    let idx = 0;
-    const overlay = document.createElement('div');
-    overlay.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:1000;";
-    const frame = document.createElement('div');
-    frame.style.cssText = "position:relative;max-width:92vw;max-height:86vh;";
-    const img = document.createElement('img');
-    img.style.cssText = "max-width:92vw;max-height:86vh;border-radius:10px;display:block;border:1px solid #e5e7eb;";
-    const prev = document.createElement('button');
-    const next = document.createElement('button');
-    const closeBtn = document.createElement('button');
-
-    [prev,next,closeBtn].forEach(b=>{
-      b.className='btn ghost'; b.style.position='absolute'; b.style.top='50%'; b.style.transform='translateY(-50%)';
-      b.style.background='rgba(255,255,255,.9)';
-    });
-    prev.textContent='‹'; next.textContent='›'; closeBtn.textContent='✕';
-    prev.style.left='-56px'; next.style.right='-56px';
-    closeBtn.style.top='-48px'; closeBtn.style.right='-8px'; closeBtn.style.transform='none';
-
-    function render(){ img.src = imgs[idx].src; img.alt = imgs[idx].alt || ''; }
-    function step(d){ idx = (idx+d+imgs.length)%imgs.length; render(); }
-
-    prev.addEventListener('click', (ev)=>{ev.stopPropagation(); step(-1);});
-    next.addEventListener('click', (ev)=>{ev.stopPropagation(); step(+1);});
-    closeBtn.addEventListener('click', (ev)=>{ev.stopPropagation(); overlay.remove();});
-    overlay.addEventListener('click', ()=> overlay.remove());
-    document.addEventListener('keydown', escClose);
-    function escClose(ev){ if(ev.key==='Escape'){ overlay.remove(); document.removeEventListener('keydown', escClose);} }
-
-    frame.append(img, prev, next, closeBtn);
-    overlay.append(frame);
-    document.body.append(overlay);
-    render();
-  });
-</script>
-</body>
-</html>
-
+          <p class="lead">“영수증 QR 한 번 스캔으로, 품목별 지출이 자동 분류됩니다
